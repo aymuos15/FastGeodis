@@ -31,9 +31,33 @@
 // PBA+ (Parallel Banding Algorithm Plus) for Exact Euclidean Distance Transform
 // Based on: Cao et al. (2010) "Parallel Banding Algorithm to compute exact distance transform with the GPU"
 //
-// This implementation is adapted from the CUCIM project (MIT License):
-// https://github.com/rapidsai/cucim
-// Original PBA+ implementation: https://github.com/orzzzjq/Parallel-Banding-Algorithm-plus
+// Portions of this implementation are adapted from the cuCIM project
+// (MIT License): https://github.com/rapidsai/cucim
+//
+// The adapted portions are used under the following MIT license:
+//
+//   Copyright (c) The cuCIM contributors
+//
+//   Permission is hereby granted, free of charge, to any person obtaining a copy
+//   of this software and associated documentation files (the "Software"), to deal
+//   in the Software without restriction, including without limitation the rights
+//   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//   copies of the Software, and to permit persons to whom the Software is
+//   furnished to do so, subject to the following conditions:
+//
+//   The above copyright notice and this permission notice shall be included in
+//   all copies or substantial portions of the Software.
+//
+//   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//   AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//   THE SOFTWARE.
+//
+// This file also draws on the original PBA+ implementation:
+//   https://github.com/orzzzjq/Parallel-Banding-Algorithm-plus
 //
 // The parallel banding algorithm was originally described in:
 // Thanh-Tung Cao, Ke Tang, Anis Mohamed, and Tiow-Seng Tan. 2010.
