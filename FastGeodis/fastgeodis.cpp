@@ -447,7 +447,15 @@ torch::Tensor exact_euclidean2d(const torch::Tensor &mask, const std::vector<flo
             throw std::runtime_error(
                 "cuda.is_available() returned false, please check if the library was compiled successfully with CUDA support");
         }
-        return exact_euclidean2d_cuda(mask, spacing);
+
+        // Ensure mask is float32 and contiguous before passing to CUDA implementation
+        torch::Tensor mask_f = mask;
+        if (mask.scalar_type() != torch::kFloat32 || !mask.is_contiguous())
+        {
+            mask_f = mask.to(mask.options().dtype(torch::kFloat32)).contiguous();
+        }
+
+        return exact_euclidean2d_cuda(mask_f, spacing);
     #else
         AT_ERROR("exact_euclidean2d is only available with CUDA support. Not compiled with CUDA.");
     #endif
