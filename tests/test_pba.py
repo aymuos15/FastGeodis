@@ -280,9 +280,10 @@ class TestExactEuclidean3D(unittest.TestCase):
         max_diff = np.abs(scipy_dist - pba_dist_np).max()
         mean_diff = np.abs(scipy_dist - pba_dist_np).mean()
 
-        self.assertLess(max_diff, 1.0, f"Max difference {max_diff} exceeds threshold")
+        # For an "exact" EDT, differences should be near floating-point precision
+        self.assertLess(max_diff, 1e-4, f"Max difference {max_diff} exceeds threshold")
         self.assertLess(
-            mean_diff, 0.1, f"Mean difference {mean_diff} exceeds threshold"
+            mean_diff, 1e-5, f"Mean difference {mean_diff} exceeds threshold"
         )
 
     @skip_if_no_cuda
